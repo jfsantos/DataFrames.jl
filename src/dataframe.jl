@@ -1659,7 +1659,7 @@ function Base.cov(df::DataFrame)
 end
 
 function clean_colnames!(df::DataFrame)
-    new_names = map(n -> replace(n, r"\W", "_"), colnames(df))
+    new_names = map(n -> replace(n, r"\W", "_"), strip(colnames(df)))
     colnames!(df, new_names)
     return
 end
